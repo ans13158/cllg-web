@@ -1,0 +1,87 @@
+.container {
+  width: 100%;
+  height: 1000px;
+  /*margin: 0 3% 535.375px 3%;*/
+  margin-bottom: 535.375px;
+  background: white;
+}
+.container .content {
+  margin-right: 3%;
+  padding-top: 50px; 
+  background: white;
+}
+.container .content .wrap {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.container .content .wrap .side-navbar {
+  width: 30%;
+  background: white;
+}
+.container .content .wrap .side-navbar ul{
+  margin: 0;
+  padding: 0;
+}
+.container .content .wrap .side-navbar li.side-navbar-heading {
+  padding: 15px 2%;
+  background: #109af7;
+  color: white;
+}
+.container .content .wrap .side-navbar li {
+  background: rgba(224, 224, 224, 0.23);
+  border-bottom: 1px solid rgba(109, 91, 91, 0.1);
+  overflow-x: hidden;  
+  list-style-type: none;
+}
+.container .content .wrap .side-navbar a {
+  color: black;
+  display: block;
+  width: 100%;
+  padding: 15px 2%;
+}
+.container .content .wrap .side-navbar ul li a:hover {
+  background: #109af7;
+  color: white;
+}
+
+.container .content .wrap .side-navbar-agri-submeu {
+  overflow-y: hidden;
+  height: 0;
+  transform: scaleY(0);    
+  transform-origin: top;
+  transition: transform 0.5s ease;
+}
+
+.container .content .wrap .side-navbar-agri:hover ul.side-navbar-agri-submeu {
+  height: 100%;
+  transform: scaleY(1);
+}
+.container .content .wrap .faculty-table {
+  background: white;
+  margin-left: 5%;
+  width: 70%;
+}
+.container .content .wrap .faculty-table table {
+  border-collapse: collapse;
+  width: 100%;
+}
+.container .content .wrap .faculty-table table tr {
+  background: rgba(224, 224, 224, 0.23);
+  border-bottom: 1px solid rgba(109, 91, 91, 0.1);
+}
+.container .content .wrap .faculty-table table tr:nth-child(odd) {
+  background: #109af7;
+}
+.container .content .wrap .faculty-table table tr:nth-child(odd) td {
+  color: white;
+}
+.container .content .wrap .faculty-table table th,td {
+  padding: 10px;
+  text-align: center;
+  color: #6d776d
+}
+.container .content .wrap .faculty-table table th {
+  background: #111;
+  color: #ffe000;
+}

@@ -1,0 +1,149 @@
+-var navbar = [{title: 'About Us',link:'#',subMenu : [{title:'Administration',link:'#'},{title:'Mission and Vision',link:'#'},{title:'Best Practices',link:'#'},{title:'Related Links',link:'#'},{title:'How to Reach',link:'#'}]},{title:'Admissions',link:'#',subMenu: [{title:'Programs',link:'#'},{title:'Admissions',link:'#'},{title:'Fee Details',link:'#'}]},{title:'Academics',link:'#',subMenu : [{title:'Advisory System',link:'#'},{title:'Education System',link:'#'},{title:'Departments',link:'#'},{title:'Course Outline',link:'#'}]}]
+
+-var deanMsgSnippet = ['Today is an era of technocracy that is boosting forward and the country is progressing implausibly in every sphere. To keep up with this rhythm of fast changing society and producing a remarkable quality of youth is the need of the hour. The increasing numbers of technological institutions keep emerging in the scenario to realize the vision of enlisting India among the developed nations.','G.B Pant University of Agriculture & Technology ranks among the top universities and has set standards of distinction and success because of the alumni of this college.<a href="#" data-hover="Read more..">Read more...</a>']
+
+- var announcements = [{date:{month:'Jan',no:'16'},desc:'Fee-Details and Fee-Scroll for Semester II(2016-2017)'},{date:{month:'Dec',no:'25'},desc:'Instructions and personal data sheet for the counselling'},{date:{month:'Dec',no:'7'},desc:'Announcement for B.Tech first year and second year'},{date:{month:'Nov',no:'23'},desc:'Documents required for the first round of counselling'}]
+
+- var events = [{date:{month:'Feb',no:'2'},desc:'Expression of interest for Pant Multi crop thresher FMPE'},{date:{month:'Jan',no:'23'},desc:'Project Research Work- TEQIP Phase II'},{date:{month:'Dec',no:'14'},desc:'SAE- COT Collegiate Club website uploaded'},{date:{month:'Nov',no:'23'},desc:'STP on Techno-economics of PV Energy Systems'}]
+
+-var nod = 5
+
+
+-var featuredLinksData = [{title:"Student Activities",subLinks:[{title:"SAE - Collegiate Club",link:"#"},{title:"Robotics Club",link:"#"},{title:"Branch Chapter",link:"#"},{title:"Engg & Tech Society",link:"#"},{title:"ISTE Pantnagar Chapter",link:"#"},{title:"Studet Publications",link:"#"}]},{title:"Alumni",subLinks:[{title:"Alumni Associations",link:"#"},{title:"Alumni Events",link:"#"},{title:"Alumni Publications",link:"#"},{title:"Alumni Contribution",link:"#"}]},{title:"Campus Life",subLinks:[{title:"Facilities",link:"#"},{title:"Co Curricular Activities",link:"#"},{title:"Housing and Residence",link:"#"},{title:"Security",link:"#"},{title:"Student Welfare",link:"#"}]}]
+
+
+-var footerLinksData = [[{title:"Achievements",subLinks:[{title:"Student",link:"#"},{title:"Faculty",link:"#"},{title:"Alumni",link:"#"}]},{title:"Publications",subLinks:[{title:"Audient",link:"#"},{title:"Latitude 29",link:"#"},{title:"Newsletter",link:"#"}]}],[{title:"Information",subLinks:[{title:"Notices",link:"#"},{title:"TEQUIP(Phase II)",link:"#"},{title:"Training",link:"#"},{title:"Vacancies",link:"#"},{title:"RTI",link:"#"},{title:"Tenders",link:"#"},{title:"Mandatory disclosure",link:"#"}]}],[{title:"Important Links",subLinks:[{title:"Training and Placement Cell",link:"#"},{title:"Discussion Forum",link:"#"},{title:"Webmail",link:"#"},{title:"Registrar's Office",link:"#"},{title:"University Website",link:"#"},{title:"Online Complaint Form",link:"#"},{title:"Center Computing Facility",link:"#"},{title:"Gallery",link:"#"}]}]]
+
+-var footerLowerLinks = [{title: 'Feedback',link:'#'},{title: 'Privacy',link:'#'},{title: 'Credits',link:'#'},{title: 'Archive',link:'#'},{title: 'Subscribe',link:'#'},{title: 'About Site',link:'#'}]
+
+
+
+
+  //===================================================
+  //=================== NAVBAR SECTION=================  
+  //===================================================
+  section.hero.fixed
+    nav.nav
+      .header-mobile
+      //Put Mobile navbar content here
+      .nav-full 
+        a.nav-logo(href="#")
+          .logo
+        .nav-primary
+          ul.nav-list.nav-primary-list
+            each value in navbar
+              li.nav-list-item.nav-primary-item
+                a(href=value.link).nav-btn
+                  span= value.title
+                .nav-sub
+                  .nav-sub-img
+                  ul.nav-sub-list
+                    each subValue in value.subMenu
+                      li
+                        a(href=subValue.link)= subValue.title
+        .nav-secondary
+          .nav-utility
+            ul.nav-list.nav-utility-list
+              each value in [{title:'Contact Us',link:'#'},{title:'Login',link:'#'}]
+                li.nav-list-item.nav-utility-item 
+                  a(href=value.link)= value.title
+          .nav-rest
+            ul.nav-list.nav-rest-list
+              each value in [{title:'People',link:'#'},{title:'Research',link:'#'},{title:'<i class="fa fa-search" aria-hidden="true"></i>',link:'#'}]
+                li.nav-list-item.nav-rest-item.nav-btn
+                  a(href=value.link)!= value.title
+    .banner-text
+      h1.banner-text-first 
+      h1.banner-text-second 
+  //================================================
+  //================= DEAN MESSAGE =================
+  //================================================
+  section.head-msg-container
+    .wrap
+      .section-title
+        h2 Message From The Head
+      .section-content
+        .fa.fa-quote-right.quote-symbol-bottom(aria-hidden="true")
+        .left-col
+          .dean-avatar-container
+            .dean-avatar
+          button.btn.btn-border-o.btn-yellow Meet The Rest Of The Team
+        .right-col
+          .fa.fa-quote-right.quote-symbol-top(aria-hidden="true")
+          div.dean-msg
+            each paragraph in deanMsgSnippet
+              p!=  paragraph
+  section.college-value
+  //================================================
+  //================= NOTICE BOARD =================
+  //================================================
+  section.featured-posts
+    .wrap
+      each val in [{title:'announcements',data:announcements},{title:'events',data:events}]
+        div(class=val.title)
+          .ticket-container
+            h3.ticket-title= val.title
+            ul.ticket-machine
+              each value in (val.data)
+                li(class="ticket")
+                  a(href="#").ticket-anchor
+                    span(class="ticket-date")
+                      span(class="ticket-date-month")= value.date.month
+                      span(class="ticket-date-day")= value.date.no
+                    span(class="ticket-desc")= value.desc
+                    span.dots-container
+                      each val in [1,2,3]
+                        span.dots
+  //================================================
+  //================= FEATURED LINKS ===============
+  //================================================
+  section.featured-links
+    .wrap
+      each wow in featuredLinksData
+        .card
+          h4= wow.title
+          ul.featured-links-list
+            each noway in wow.subLinks
+              li.featured-links-list-item
+                a(href=noway.link)= noway.title
+  //================================================
+  //================= COLLEGE SCORE =================
+  //================================================
+  section.college-score
+  //================================================
+  //================= TIMELINE EVENT =================
+  //================================================
+  section.timeline
+  //================================================
+  //================= FOOTER =================
+  //================================================
+  footer.fixed-footer
+    .upper-footer
+      .wrap
+        .cta
+          form(onsubmit="return sendFeedback()" name="feedback")
+            .input-container
+              input(class="feedback-msg" type="text" placeholder="Suggestion or query ?" name="message" required)
+              input(class="feedback-email" type="email" placeholder="Email Id" name="email" required)
+            button(type="submit" onclick="return sendFeedback()") 
+              i(class="fa fa-paper-plane" aria-hidden="true")
+        .links
+          each columnLink in footerLinksData
+            .footer-sub-links-col
+              each rowSection in columnLink
+                .holder
+                  h4(class="footer-sub-links-col-title")=  rowSection.title
+                  ul.footer-sub-links-col-list
+                    each val in rowSection.subLinks
+                      li.footer-sub-links-col-list-item
+                        a(href=val.link data-hover=val.title)= val.title
+    .lower-footer
+      .wrap
+        .lower-footer-links
+          ul
+            each val in footerLowerLinks
+              li
+                a(href=val.links)= val.title
+        .copyright-details
+          p Copyright 	&#xA9; 2016 Made in College Of Technology
+      
